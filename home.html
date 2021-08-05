@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script type="module">
+  //console.log(navBar);
+
+  import navBar from "./components/navbar.js";
+  document.body.innerHTML += navBar();
+
+  import {
+    getData,
+    appendData,
+    appendNames,
+    searchFood,
+    throttleFunction,
+  } from "./scripts/data.js";
+
+  console.log(appendNames);
+
+  let parent = document.getElementById("data");
+  let response = getData("https://www.themealdb.com/api/json/v1/1/random.php");
+  response.then((data) => {
+    console.log(data);
+
+    appendData(data, parent);
+
+    //  console.log(data);
+  });
+
+  // let search = document.getElementById("query").value;
+  // let input = document.getElementById("search");
+
+  // input.addEventListener("input", throttleFunction);
+  appendData(data, parent);
+  // searchFood(search);
+</script>

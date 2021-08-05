@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 4%;
+  border: solid 1px black;
+  background-color: black;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 2%;
+}
+
+.options h3 {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+a {
+  color: aliceblue;
+}
+#data {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  align-items: center;
+}
+
+#data img {
+  width: 50%;
+  height: 150px;
+}
+#searchBar {
+  padding-top: 3%;
+  color: white;
+}
+#logo_img {
+  width: 130px;
+  height: 100px;
+  border-radius: 50px;
+  padding: auto;
+}
+#logo {
+  margin-left: -15%;
+  font-family: "MonteCarlo", cursive;
+  color: white;
+}
