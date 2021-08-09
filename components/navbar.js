@@ -6,6 +6,7 @@ function navbar() {
 
     <div id="searchBar">
        <input type="search" id="query" placeholder="Search By Name" />
+  <div id="names"></div>
     </div>
 
         <div class="options">

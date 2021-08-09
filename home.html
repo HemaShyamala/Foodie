@@ -16,30 +16,61 @@
   import navBar from "./components/navbar.js";
   document.body.innerHTML += navBar();
 
-  import {
-    getData,
-    appendData,
-    appendNames,
-    searchFood,
-    throttleFunction,
-  } from "./scripts/data.js";
-
-  console.log(appendNames);
+  import { getData, searchData } from "./scripts/data.js";
 
   let parent = document.getElementById("data");
-  let response = getData("https://www.themealdb.com/api/json/v1/1/random.php");
-  response.then((data) => {
-    console.log(data);
 
-    appendData(data, parent);
+  let input = document.getElementsByTagName("input")[0];
+
+  let names = document.getElementById("names");
+
+  input.addEventListener("input", () => {
+    let search = document.getElementById("query").value;
+    let response = getData(
+      `https://www.themealdb.com/api/json/v1/1/search.php?f=${search}`
+    );
+    response.then((data) => {
+      let { meals } = data;
+
+      function appendNames(meals) {
+        names.innerHTML = null;
+
+        meals.forEach(({ strMeal }) => {
+          console.log(strMeal);
+
+          let nameDiv = document.createElement("div");
+
+          let name_p = document.createElement("p");
+
+          name_p.innerText = null;
+
+          name_p.innerText = strMeal;
+
+          nameDiv.addEventListener("click", () => {
+            let data = name_p.innerText;
+            //   console.log(data);
+            //console.log(meals);
+            for (let i = 0; i < meals.length; i++) {
+              // console.log(meals[i].strMeal);
+              if (meals[i].strMeal == data) {
+                searchData(meals[i], parent);
+              }
+            }
+          });
+
+          name_p.style.marginBottom = "0%";
+
+          name_p.style.marginTop = "1%";
+
+          nameDiv.append(name_p);
+
+          names.append(nameDiv);
+        });
+      }
+      appendNames(meals);
+    });
+    // appendData(data, parent);
 
     //  console.log(data);
   });
-
-  // let search = document.getElementById("query").value;
-  // let input = document.getElementById("search");
-
-  // input.addEventListener("input", throttleFunction);
-  appendData(data, parent);
-  // searchFood(search);
 </script>

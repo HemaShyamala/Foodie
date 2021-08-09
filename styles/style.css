@@ -24,10 +24,11 @@ a {
   color: aliceblue;
 }
 #data {
-  margin: auto;
-  width: 60%;
+  display: grid;
+
+  grid-template-columns: 48% 48%;
   text-align: center;
-  align-items: center;
+  width: 90%;
 }
 
 #data img {
@@ -48,4 +49,20 @@ a {
   margin-left: -15%;
   font-family: "MonteCarlo", cursive;
   color: white;
+}
+#names {
+  border: 1px solid rgb(83, 83, 83);
+  width: 99%;
+  width: 250px;
+}
+#names > div {
+  border: 1px solid rgb(83, 83, 83);
+}
+#query {
+  width: 252px;
+}
+#names > div:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
 }

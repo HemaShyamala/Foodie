@@ -16,15 +16,7 @@
   import navBar from "./components/navbar.js";
   document.body.innerHTML += navBar();
 
-  import {
-    getData,
-    appendData,
-    appendNames,
-    searchFood,
-    throttleFunction,
-  } from "./scripts/data.js";
-
-  console.log(appendNames);
+  import { getData, appendData } from "./scripts/data.js";
 
   let parent = document.getElementById("data");
   let response = getData("https://www.themealdb.com/api/json/v1/1/random.php");
