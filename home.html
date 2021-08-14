@@ -16,15 +16,25 @@
   import navBar from "./components/navbar.js";
   document.body.innerHTML += navBar();
 
-  import { getData, searchData } from "./scripts/data.js";
+  import { getData, searchData, appendData } from "./scripts/data.js";
 
   let parent = document.getElementById("data");
+
+  let response = getData(
+    "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"
+  );
+  response.then((data) => {
+    console.log(data);
+
+    appendData(data, parent);
+  });
 
   let input = document.getElementsByTagName("input")[0];
 
   let names = document.getElementById("names");
 
   input.addEventListener("input", () => {
+    parent.innerHTML = null;
     let search = document.getElementById("query").value;
     let response = getData(
       `https://www.themealdb.com/api/json/v1/1/search.php?f=${search}`
